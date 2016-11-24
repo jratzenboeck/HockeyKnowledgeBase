@@ -32,13 +32,13 @@ line(2).
 line(3).
 line(4).
 
-game(1, line(1), 2, 0).
+game(1, line(1), 1, 0).
 game(1, line(2), 1, 1).
 game(1, line(3), 1, 2).
 game(1, line(4), 1, 0).
 
-player_plays(player('philipp lukas'), game(1, line(1), GoalsShot, GoalsReceived)).
-player_plays(player('fabio hofer'), game(1, line(1), X, Y)).
+player_plays(player('philipp lukas'), game(1, line(1), goalsShot, goalsReceived)).
+player_plays(player('fabio hofer'), game(1, line(1), goalsShot, goalsReceived)).
 
 
 
