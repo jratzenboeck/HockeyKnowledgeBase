@@ -48,8 +48,8 @@ againstGoal(game(g1), line(l3), 2).
 againstGoal(game(g1), line(l4), 0).
 
 
-%player_plays(player('philipp lukas'), game(g1, line(l1), goalsShot, goalsReceived)).
-%player_plays(player('fabio hofer'), game(g1, line(l1), goalsShot, goalsReceived)).
+%player_plays(player('philipp lukas'), game(g1), line(l1)).
+%player_plays(player('fabio hofer'), game(g1), line(l1)).
 
 
 
