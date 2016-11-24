@@ -27,18 +27,29 @@ player('dan dasilva', forward).
 player('mate gaspar', forward).
 player('kevin moderer', forward).
 
-line(1).
-line(2).
-line(3).
-line(4).
+line(l1).
+line(l2).
+line(l3).
+line(l4).
 
-game(1, line(1), 1, 0).
-game(1, line(2), 1, 1).
-game(1, line(3), 1, 2).
-game(1, line(4), 1, 0).
+game(g1).
+game(g2).
 
-player_plays(player('philipp lukas'), game(1, line(1), goalsShot, goalsReceived)).
-player_plays(player('fabio hofer'), game(1, line(1), goalsShot, goalsReceived)).
+scoredGoal(game(g1), line(l1), 1).
+scoredGoal(game(g2), line(l1), 4).
+scoredGoal(game(g1), line(l2), 1).
+scoredGoal(game(g1), line(l3), 1).
+scoredGoal(game(g1), line(l4), 1).
+
+againstGoal(game(g1), line(l1), 1).
+againstGoal(game(g2), line(l1), 4).
+againstGoal(game(g1), line(l2), 0).
+againstGoal(game(g1), line(l3), 2).
+againstGoal(game(g1), line(l4), 0).
+
+
+%player_plays(player('philipp lukas'), game(g1, line(l1), goalsShot, goalsReceived)).
+%player_plays(player('fabio hofer'), game(g1, line(l1), goalsShot, goalsReceived)).
 
 
 
