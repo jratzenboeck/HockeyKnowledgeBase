@@ -35,11 +35,11 @@ line(l4).
 game(g1).
 game(g2).
 
-scoredGoal(game(g1), line(l1), 1).
-scoredGoal(game(g1), line(l2), 1).
-scoredGoal(game(g1), line(l3), 1).
-scoredGoal(game(g1), line(l4), 1).
-scoredGoal(game(g2), line(l1), 4).
+scoredGoal(game(g1), line(l1), 1, 2).
+scoredGoal(game(g1), line(l2), 1, 0).
+scoredGoal(game(g1), line(l3), 1, 2).
+scoredGoal(game(g1), line(l4), 1, 0).
+scoredGoal(game(g2), line(l1), 4, 4).
 
 receivedGoal(game(g1), line(l1), 2).
 receivedGoal(game(g2), line(l1), 4).
