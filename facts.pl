@@ -36,20 +36,29 @@ game(g1).
 game(g2).
 
 scoredGoal(game(g1), line(l1), 1).
-scoredGoal(game(g2), line(l1), 4).
 scoredGoal(game(g1), line(l2), 1).
 scoredGoal(game(g1), line(l3), 1).
 scoredGoal(game(g1), line(l4), 1).
+scoredGoal(game(g2), line(l1), 4).
 
-againstGoal(game(g1), line(l1), 1).
-againstGoal(game(g2), line(l1), 4).
-againstGoal(game(g1), line(l2), 0).
-againstGoal(game(g1), line(l3), 2).
-againstGoal(game(g1), line(l4), 0).
+receivedGoal(game(g1), line(l1), 2).
+receivedGoal(game(g2), line(l1), 4).
+receivedGoal(game(g1), line(l2), 0).
+receivedGoal(game(g1), line(l3), 2).
+receivedGoal(game(g1), line(l4), 0).
 
+player_plays(player('philipp lukas', forward), game(g1), line(l1)).
+player_plays(player('fabio hofer', forward), game(g1), line(l1)).
+player_plays(player('dan dasilva', forward), game(g1), line(l1)).
+player_plays(player('robert lukas', defender), game(g1), line(l1)).
+player_plays(player('marc andre dorion', defender), game(g1), line(l1)).
 
-%player_plays(player('philipp lukas'), game(g1), line(l1)).
-%player_plays(player('fabio hofer'), game(g1), line(l1)).
+player_plays(player('curtis loik', forward), game(g2), line(l1)).
+player_plays(player('kevin moderer', forward), game(g2), line(l1)).
+player_plays(player('rob hisey', forward), game(g2), line(l1)).
+player_plays(player('robert lukas', defender), game(g2), line(l1)).
+player_plays(player('mario altmann', defender), game(g2), line(l1)).
+
 
 
 
