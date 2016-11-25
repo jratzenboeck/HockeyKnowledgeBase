@@ -41,12 +41,6 @@ scoredGoal(game(g1), line(l3), 1, 2).
 scoredGoal(game(g1), line(l4), 1, 0).
 scoredGoal(game(g2), line(l1), 4, 4).
 
-receivedGoal(game(g1), line(l1), 2).
-receivedGoal(game(g2), line(l1), 4).
-receivedGoal(game(g1), line(l2), 0).
-receivedGoal(game(g1), line(l3), 2).
-receivedGoal(game(g1), line(l4), 0).
-
 player_plays(player('philipp lukas', forward), game(g1), line(l1)).
 player_plays(player('fabio hofer', forward), game(g1), line(l1)).
 player_plays(player('dan dasilva', forward), game(g1), line(l1)).
