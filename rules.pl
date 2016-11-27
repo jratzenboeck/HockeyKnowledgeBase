@@ -22,14 +22,14 @@ received_goals(Game, Score) :-
 best_offense_game(Line, BestOffenseGame) :- 
 	findall(ScoredGoals, scoredGoal(_, line(Line), ScoredGoals, _), ScoredGoalsForGames), 
 	max_list(ScoredGoalsForGames, MaxScoredGoals),
-	scoredGoal(BestOffenseGame, line(Line), MaxScoredGoals, _).
+	scoredGoal(game(BestOffenseGame), line(Line), MaxScoredGoals, _).
 
 best_defense_game(Line, BestDefenseGame) :- 
 	findall(ReceivedGoals, scoredGoal(_, line(Line), _, ReceivedGoals), ReceivedGoalsForGames), 
 	min_list(ReceivedGoalsForGames, MinReceivedGoals),
-	scoredGoal(BestDefenseGame, line(Line), _, MinReceivedGoals).
+	scoredGoal(game(BestDefenseGame), line(Line), _, MinReceivedGoals).
 
-best_goalie_game(game(BestDefenseGame)) :- 
+best_goalie_game(BestDefenseGame) :- 
 	findall(Game, scoredGoal(game(Game), _, _, _), GamesAsList), 
 	list_to_set(GamesAsList, GamesAsSet),  
 	maplist(received_goals, GamesAsSet, ReceivedGoalsForGames),
@@ -37,26 +37,26 @@ best_goalie_game(game(BestDefenseGame)) :-
 	indexOf(ReceivedGoalsForGames, MinReceivedGoals, Index),
 	atom_concat(g, Index, BestDefenseGame).
 
-best_plus_minus_game(Line, game(BestPlusMinusGame)) :-
+best_plus_minus_game(Line, BestPlusMinusGame) :-
 	findall(PlusMinus, plus_minus_goals(_, Line, PlusMinus), PlusMinusForGames),
 	max_list(PlusMinusForGames, MaxPlusMinus),
 	indexOf(PlusMinusForGames, MaxPlusMinus, Index),
 	atom_concat(g, Index, BestPlusMinusGame).
 	
-line_setup_offense(Line, Player) :- 
+line_setup_offense(Line, Players) :- 
 	best_offense_game(Line, BestOffenseGame),
-	player_plays(player(Player), position(forward), BestOffenseGame, line(Line)).
+	findall(Player, player_plays(player(Player), position(forward), game(BestOffenseGame), line(Line)), Players).
 
-line_setup_defense(Line, Player) :-
+line_setup_defense(Line, Players) :-
 	best_defense_game(Line, BestDefenseGame),
-	player_plays(player(Player), position(defender), BestDefenseGame, line(Line)).
+	findall(Player, player_plays(player(Player), position(defender), game(BestDefenseGame), line(Line)), Players).
 
 line_setup_goalie(Line, Player) :-
 	best_goalie_game(BestGoalieGame),
-	player_plays(player(Player), position(goalie), BestGoalieGame, line(Line)).
+	player_plays(player(Player), position(goalie), game(BestGoalieGame), line(Line)).
 
 line_setup_plus_minus(Line, Player) :-
 	best_plus_minus_game(Line, BestPlusMinusGame),
-	player_plays(player(Player), position(_), BestPlusMinusGame, line(Line)).
+	player_plays(player(Player), position(_), game(BestPlusMinusGame), line(Line)).
 
 
